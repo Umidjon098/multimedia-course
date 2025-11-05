@@ -10,3 +10,33 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* CKEditor media embed styles */
+.prose .ck-media__wrapper,
+.prose figure.media {
+  clear: both;
+  margin: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.prose .ck-media__wrapper > div,
+.prose figure.media > div {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.prose .ck-media__wrapper iframe,
+.prose figure.media iframe,
+.prose iframe[src*="youtube.com"],
+.prose iframe[src*="youtu.be"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+  border-radius: 0.5rem;
+}

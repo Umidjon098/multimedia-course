@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getYouTubeEmbedUrl } from "@/lib/utils";
+import { getYouTubeEmbedUrl, convertYouTubeLinksToEmbeds } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 import QuizComponent from "@/components/quiz/quiz-component";
 
@@ -75,8 +75,10 @@ export default async function LessonPage({
                 </CardHeader>
                 <CardContent>
                   <div
-                    className="prose max-w-none"
-                    dangerouslySetInnerHTML={{ __html: lesson.content }}
+                    className="prose max-w-none [&_iframe]:max-w-full [&_iframe]:relative [&_.ck-media__wrapper]:clear-both [&_figure]:my-4"
+                    dangerouslySetInnerHTML={{
+                      __html: convertYouTubeLinksToEmbeds(lesson.content),
+                    }}
                   />
                 </CardContent>
               </Card>
