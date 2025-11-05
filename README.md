@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Educational Web Platform
 
-## Getting Started
+A fullstack educational web platform built with **Next.js 14**, **TypeScript**, **Supabase**, and deployable on **Netlify**.
 
-First, run the development server:
+## 🚀 Features
+
+### Admin Panel (`/admin`)
+- ✅ Create, edit, and delete lessons
+- ✅ Rich text editor (CKEditor 5) for lesson content
+- ✅ Upload images and videos
+- ✅ Create and manage quizzes for each lesson
+- ✅ Multiple-choice questions with instant feedback
+- ✅ Protected routes with Supabase authentication
+
+### Public Website
+- ✅ Browse all available lessons
+- ✅ Lesson detail pages with video and rich content
+- ✅ Interactive quizzes with scoring
+- ✅ Related lessons recommendations
+- ✅ Responsive design
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 14 (App Router), TypeScript, TailwindCSS
+- **Backend**: Supabase (Database, Auth, Storage)
+- **Editor**: CKEditor 5
+- **Forms**: React Hook Form + Zod
+- **Data Fetching**: React Query
+- **Deployment**: Netlify
+
+## 📦 Installation
+
+### Prerequisites
+- Node.js 20+ installed
+- A Supabase account
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repo-url>
+cd multimedia-course
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Set Up Supabase
+
+1. Create a new project on [Supabase](https://supabase.com)
+2. Go to **Project Settings** → **API** and copy:
+   - Project URL
+   - Anon/Public Key
+3. Run the SQL schema from `supabase/schema.sql` in the Supabase SQL editor
+
+### 4. Configure Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+### 5. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔐 Authentication
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Go to `/login`
+2. Click "Sign up" to create admin account
+3. Enter email and password
 
-## Learn More
+## 🚢 Deployment on Netlify
 
-To learn more about Next.js, take a look at the following resources:
+1. Push code to GitHub
+2. Go to [Netlify](https://netlify.com)
+3. Connect your repository
+4. Add environment variables
+5. Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Creating a Lesson
+1. Log in to admin panel
+2. Click "Create Lesson"
+3. Fill in title, description, video URL, upload image
+4. Add content using rich text editor
+5. Save
 
-## Deploy on Vercel
+### Adding a Quiz
+1. Edit a lesson
+2. Go to "Quiz Questions" tab
+3. Add questions with multiple choices
+4. Mark correct answers
+5. Save
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License
+
+Built with ❤️ using Next.js and Supabase
+# multimedia-course
