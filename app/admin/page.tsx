@@ -20,13 +20,17 @@ export default async function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Lessons</h1>
-          <p className="text-gray-600 mt-1">Manage your course lessons</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            Lessons
+          </h1>
+          <p className="text-sm sm:text-base text-gray-600 mt-1">
+            Manage your course lessons
+          </p>
         </div>
-        <Link href="/admin/lessons/new">
-          <Button>
+        <Link href="/admin/lessons/new" className="w-full sm:w-auto">
+          <Button className="w-full sm:w-auto">
             <Plus className="h-4 w-4 mr-2" />
             Create Lesson
           </Button>

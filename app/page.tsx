@@ -20,22 +20,24 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
       <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <GraduationCap className="h-10 w-10 text-blue-600" />
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+              <GraduationCap className="h-8 w-8 sm:h-10 sm:w-10 text-blue-600 shrink-0" />
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-2xl font-bold text-gray-900 truncate">
                   Learning Platform
                 </h1>
-                <p className="text-sm text-gray-600">Expand your knowledge</p>
+                <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">
+                  Expand your knowledge
+                </p>
               </div>
             </div>
             <Link
               href={user ? "/admin" : "/login"}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-3 py-2 sm:px-4 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base whitespace-nowrap shrink-0"
             >
-              {user ? "Go to Admin" : "Admin Login"}
+              {user ? "Admin" : "Login"}
             </Link>
           </div>
         </div>
