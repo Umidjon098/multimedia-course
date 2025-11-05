@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { login, signup } from "@/lib/actions/auth";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { login, signup, getUser } from "@/lib/actions/auth";
 import {
   Card,
   CardContent,
@@ -15,10 +16,24 @@ import Link from "next/link";
 import { GraduationCap } from "lucide-react";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [isSignup, setIsSignup] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const user = await getUser();
+      if (user) {
+        router.push("/admin");
+      } else {
+        setChecking(false);
+      }
+    };
+    checkAuth();
+  }, [router]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,6 +58,17 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
+
+  if (checking) {
+    return (
+      <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+        <div className="text-center">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">

@@ -1,4 +1,5 @@
 import { getLessons } from "@/lib/actions/lessons";
+import { getUser } from "@/lib/actions/auth";
 import {
   Card,
   CardContent,
@@ -14,7 +15,7 @@ import { BookOpen, GraduationCap } from "lucide-react";
 export const revalidate = 3600;
 
 export default async function Home() {
-  const lessons = await getLessons();
+  const [lessons, user] = await Promise.all([getLessons(), getUser()]);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
@@ -31,10 +32,10 @@ export default async function Home() {
               </div>
             </div>
             <Link
-              href="/login"
+              href={user ? "/admin" : "/login"}
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Admin Login
+              {user ? "Go to Admin" : "Admin Login"}
             </Link>
           </div>
         </div>
