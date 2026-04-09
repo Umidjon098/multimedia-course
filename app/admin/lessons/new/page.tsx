@@ -6,7 +6,7 @@ export default function NewLessonPage() {
     <div className="max-w-4xl mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle>Create New Lesson</CardTitle>
+          <CardTitle>Yangi dars yaratish</CardTitle>
         </CardHeader>
         <CardContent>
           <LessonForm />

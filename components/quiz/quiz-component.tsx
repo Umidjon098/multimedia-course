@@ -87,14 +87,17 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
     return (
       <Card className="shadow-none">
         <CardHeader>
-          <CardTitle>Test Your Knowledge</CardTitle>
+          <CardTitle>{"Bilimingizni sinab ko'ring"}</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-gray-600 mb-4">
-            Ready to test what you&apos;ve learned? Take the quiz with{" "}
-            {quiz.quiz_questions.length} questions.
+            {"O'rganganlaringizni tekshirishga tayyormisiz? "}
+            {quiz.quiz_questions.length} ta savoldan iborat viktorinani
+            boshlang.
           </p>
-          <Button onClick={() => setShowQuiz(true)}>Start Quiz</Button>
+          <Button onClick={() => setShowQuiz(true)}>
+            Viktorinani boshlash
+          </Button>
         </CardContent>
       </Card>
     );
@@ -109,7 +112,7 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
         <CardHeader>
           <CardTitle className="flex items-center">
             <Trophy className="h-6 w-6 text-yellow-500 mr-2" />
-            Quiz Results
+            Viktorina natijalari
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -118,7 +121,7 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
               {percentage}%
             </div>
             <p className="text-lg text-gray-700">
-              You scored {correct} out of {total}
+              Siz {total} tadan {correct} ta {"to'g'ri"} javob berdingiz
             </p>
           </div>
 
@@ -143,8 +146,8 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
                             isCorrect
                               ? "bg-green-50 border-green-200 border"
                               : isUserAnswer
-                              ? "bg-red-50 border-red-200 border"
-                              : "bg-gray-50"
+                                ? "bg-red-50 border-red-200 border"
+                                : "bg-gray-50"
                           }`}
                         >
                           <span>{option.text}</span>
@@ -164,7 +167,7 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
           </div>
 
           <Button onClick={handleRestart} className="w-full">
-            Retake Quiz
+            Qayta topshirish
           </Button>
         </CardContent>
       </Card>
@@ -178,9 +181,9 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
     <Card className="shadow-none">
       <CardHeader>
         <div className="flex justify-between items-center">
-          <CardTitle>Quiz</CardTitle>
+          <CardTitle>Viktorina</CardTitle>
           <span className="text-sm text-gray-500">
-            Question {currentQuestion + 1} of {quiz.quiz_questions.length}
+            Savol {currentQuestion + 1} / {quiz.quiz_questions.length}
           </span>
         </div>
       </CardHeader>
@@ -210,12 +213,12 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
             onClick={handlePrevious}
             disabled={currentQuestion === 0}
           >
-            Previous
+            Oldingi
           </Button>
           <Button onClick={handleNext} disabled={selectedAnswer === undefined}>
             {currentQuestion === quiz.quiz_questions.length - 1
-              ? "Finish"
-              : "Next"}
+              ? "Yakunlash"
+              : "Keyingi"}
           </Button>
         </div>
       </CardContent>

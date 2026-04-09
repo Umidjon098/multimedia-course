@@ -21,14 +21,14 @@ export default async function EditLessonPage({
     <div className="max-w-4xl mx-auto">
       <Tabs defaultValue="lesson" className="space-y-6">
         <TabsList>
-          <TabsTrigger value="lesson">Lesson Details</TabsTrigger>
-          <TabsTrigger value="quiz">Quiz Questions</TabsTrigger>
+          <TabsTrigger value="lesson">Dars tafsilotlari</TabsTrigger>
+          <TabsTrigger value="quiz">Viktorina savollari</TabsTrigger>
         </TabsList>
 
         <TabsContent value="lesson">
           <Card>
             <CardHeader>
-              <CardTitle>Edit Lesson</CardTitle>
+              <CardTitle>Darsni tahrirlash</CardTitle>
             </CardHeader>
             <CardContent>
               <LessonForm lesson={lesson} />
@@ -39,7 +39,7 @@ export default async function EditLessonPage({
         <TabsContent value="quiz">
           <Card>
             <CardHeader>
-              <CardTitle>Manage Quiz</CardTitle>
+              <CardTitle>Viktorinani boshqarish</CardTitle>
             </CardHeader>
             <CardContent>
               <QuizManager lessonId={lesson.id} />

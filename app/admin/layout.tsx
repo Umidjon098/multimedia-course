@@ -22,7 +22,7 @@ export default async function AdminLayout({
               >
                 <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 shrink-0" />
                 <span className="text-base sm:text-xl font-bold text-gray-900 truncate">
-                  Admin Panel
+                  Boshqaruv paneli
                 </span>
               </Link>
               <div className="hidden md:flex space-x-4">
@@ -30,19 +30,19 @@ export default async function AdminLayout({
                   href="/admin"
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
                 >
-                  Lessons
+                  Darslar
                 </Link>
                 <Link
                   href="/"
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
                 >
                   <Home className="h-4 w-4 mr-2" />
-                  View Site
+                  {"Saytni ko'rish"}
                 </Link>
               </div>
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4 shrink-0">
-              <span className="text-xs sm:text-sm text-gray-600 hidden sm:inline truncate max-w-[120px] md:max-w-none">
+              <span className="text-xs sm:text-sm text-gray-600 hidden sm:inline truncate max-w-30 md:max-w-none">
                 {user?.email}
               </span>
               <form action={logout}>
@@ -53,7 +53,7 @@ export default async function AdminLayout({
                   className="h-8 sm:h-9"
                 >
                   <LogOut className="h-4 w-4 sm:mr-2" />
-                  <span className="hidden sm:inline">Logout</span>
+                  <span className="hidden sm:inline">Chiqish</span>
                 </Button>
               </form>
             </div>

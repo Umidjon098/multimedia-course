@@ -23,16 +23,16 @@ export default async function AdminDashboard() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-            Lessons
+            Darslar
           </h1>
           <p className="text-sm sm:text-base text-gray-600 mt-1">
-            Manage your course lessons
+            Kurs darslaringizni boshqaring
           </p>
         </div>
         <Link href="/admin/lessons/new" className="w-full sm:w-auto">
           <Button className="w-full sm:w-auto">
             <Plus className="h-4 w-4 mr-2" />
-            Create Lesson
+            Dars yaratish
           </Button>
         </Link>
       </div>
@@ -42,15 +42,15 @@ export default async function AdminDashboard() {
           <CardContent className="flex flex-col items-center justify-center py-12">
             <BookOpen className="h-12 w-12 text-gray-400 mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              No lessons yet
+              {"Hali darslar yo'q"}
             </h3>
             <p className="text-gray-600 mb-4">
-              Get started by creating your first lesson
+              Birinchi darsingizni yaratib ishni boshlang
             </p>
             <Link href="/admin/lessons/new">
               <Button>
                 <Plus className="h-4 w-4 mr-2" />
-                Create Lesson
+                Dars yaratish
               </Button>
             </Link>
           </CardContent>
@@ -72,18 +72,18 @@ export default async function AdminDashboard() {
               <CardHeader>
                 <CardTitle className="line-clamp-1">{lesson.title}</CardTitle>
                 <CardDescription className="line-clamp-2">
-                  {lesson.description || "No description"}
+                  {lesson.description || "Tavsif yo'q"}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-sm text-gray-500 mb-4">
-                  Created {formatDate(lesson.created_at)}
+                  Yaratilgan sana: {formatDate(lesson.created_at)}
                 </div>
                 <div className="flex space-x-2">
                   <Link href={`/admin/lessons/${lesson.id}`} className="flex-1">
                     <Button variant="secondary" size="sm" className="w-full">
                       <Edit className="h-4 w-4 mr-2" />
-                      Edit
+                      Tahrirlash
                     </Button>
                   </Link>
                   <DeleteLessonButton lessonId={lesson.id} />

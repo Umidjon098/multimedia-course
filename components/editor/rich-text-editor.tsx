@@ -17,8 +17,8 @@ const CKEditorWrapper = dynamic<EditorProps>(
     }>,
   {
     ssr: false,
-    loading: () => <Textarea placeholder="Loading editor..." disabled />,
-  }
+    loading: () => <Textarea placeholder="Muharrir yuklanmoqda..." disabled />,
+  },
 );
 
 interface RichTextEditorProps {

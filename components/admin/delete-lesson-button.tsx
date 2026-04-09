@@ -11,7 +11,7 @@ export default function DeleteLessonButton({ lessonId }: { lessonId: string }) {
   const handleDelete = async () => {
     if (
       !confirm(
-        "Are you sure you want to delete this lesson? This action cannot be undone."
+        "Haqiqatan ham bu darsni o'chirmoqchimisiz? Bu amalni ortga qaytarib bo'lmaydi.",
       )
     ) {
       return;
@@ -21,10 +21,10 @@ export default function DeleteLessonButton({ lessonId }: { lessonId: string }) {
     try {
       const result = await deleteLesson(lessonId);
       if (result.error) {
-        alert("Error deleting lesson: " + result.error);
+        alert("Darsni o'chirishda xatolik: " + result.error);
       }
     } catch {
-      alert("Error deleting lesson");
+      alert("Darsni o'chirishda xatolik yuz berdi");
     } finally {
       setIsDeleting(false);
     }

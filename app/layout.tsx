@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Learning Platform - Educational Courses",
-  description: "Learn with interactive lessons, videos, and quizzes",
+  title: "Ta'lim Platformasi - Interaktiv Kurslar",
+  description: "Interaktiv darslar, videolar va viktorinalar orqali o'rganing",
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="uz">
       <body className={inter.className}>{children}</body>
     </html>
   );

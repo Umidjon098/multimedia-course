@@ -52,7 +52,7 @@ export default function CKEditorWrapper({
         editor={ClassicEditor as never}
         data={value}
         config={{
-          placeholder: placeholder || "Start typing...",
+          placeholder: placeholder || "Yozishni boshlang...",
           toolbar: [
             "heading",
             "|",
@@ -76,7 +76,7 @@ export default function CKEditorWrapper({
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (editor as any).plugins.get("FileRepository").createUploadAdapter = (
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            loader: any
+            loader: any,
           ) => {
             return new UploadAdapter(loader);
           };

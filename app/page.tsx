@@ -26,10 +26,10 @@ export default async function Home() {
               <GraduationCap className="h-8 w-8 sm:h-10 sm:w-10 text-blue-600 shrink-0" />
               <div className="min-w-0">
                 <h1 className="text-lg sm:text-2xl font-bold text-gray-900 truncate">
-                  Learning Platform
+                  {"Ta'lim Platformasi"}
                 </h1>
                 <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">
-                  Expand your knowledge
+                  Bilimingizni kengaytiring
                 </p>
               </div>
             </div>
@@ -37,7 +37,7 @@ export default async function Home() {
               href={user ? "/admin" : "/login"}
               className="px-3 py-2 sm:px-4 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base whitespace-nowrap shrink-0"
             >
-              {user ? "Admin" : "Login"}
+              {user ? "Boshqaruv" : "Kirish"}
             </Link>
           </div>
         </div>
@@ -46,10 +46,12 @@ export default async function Home() {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Welcome to Our Learning Platform
+            {"Ta'lim platformamizga xush kelibsiz"}
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Discover courses, watch videos, and test your knowledge
+            {
+              "Kurslarni ko'ring, videolarni tomosha qiling va bilimingizni sinab ko'ring"
+            }
           </p>
         </div>
       </section>
@@ -60,10 +62,10 @@ export default async function Home() {
             <CardContent className="flex flex-col items-center justify-center py-12">
               <BookOpen className="h-16 w-16 text-gray-400 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                No lessons available yet
+                Hozircha darslar mavjud emas
               </h3>
               <p className="text-gray-600 text-center">
-                Check back soon for new content!
+                {"Tez orada yangi kontent qo'shiladi"}
               </p>
             </CardContent>
           </Card>
@@ -87,7 +89,7 @@ export default async function Home() {
                       {lesson.title}
                     </CardTitle>
                     <CardDescription className="line-clamp-3">
-                      {lesson.description || "No description available"}
+                      {lesson.description || "Tavsif mavjud emas"}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>

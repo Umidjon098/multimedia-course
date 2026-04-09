@@ -44,8 +44,8 @@ export async function signup(formData: FormData) {
   // Check if email confirmation is required
   if (authData?.user && !authData.session) {
     return {
-      error:
-        "Please check your email to confirm your account before logging in.",
+      success:
+        "Hisobingizni tasdiqlash uchun elektron pochtangizni tekshiring, so'ng tizimga kiring.",
     };
   }
 

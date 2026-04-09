@@ -32,7 +32,7 @@ export default async function LessonPage({
           <Link href="/">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Lessons
+              Darslarga qaytish
             </Button>
           </Link>
         </div>
@@ -71,7 +71,7 @@ export default async function LessonPage({
             {lesson.content && (
               <Card className="shadow-none">
                 <CardHeader>
-                  <CardTitle>Lesson Content</CardTitle>
+                  <CardTitle>Dars mazmuni</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div

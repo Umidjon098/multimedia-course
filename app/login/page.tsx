@@ -45,15 +45,19 @@ export default function LoginPage() {
 
     try {
       const result = isSignup ? await signup(formData) : await login(formData);
-      if (result?.error) {
+      if (result && "success" in result) {
+        setSuccess(result.success);
+      } else if (result && "error" in result) {
         if (result.error.includes("check your email")) {
-          setSuccess(result.error);
+          setSuccess(
+            "Hisobingizni tasdiqlash uchun elektron pochtangizni tekshiring, so'ng tizimga kiring.",
+          );
         } else {
           setError(result.error);
         }
       }
     } catch {
-      setError("An error occurred");
+      setError("Xatolik yuz berdi");
     } finally {
       setLoading(false);
     }
@@ -64,7 +68,7 @@ export default function LoginPage() {
       <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
         <div className="text-center">
           <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <p className="mt-4 text-gray-600">Yuklanmoqda...</p>
         </div>
       </div>
     );
@@ -77,18 +81,20 @@ export default function LoginPage() {
           <Link href="/" className="inline-flex items-center space-x-2 mb-4">
             <GraduationCap className="h-10 w-10 text-blue-600" />
             <span className="text-2xl font-bold text-gray-900">
-              Learning Platform
+              {"Ta'lim Platformasi"}
             </span>
           </Link>
         </div>
 
         <Card>
           <CardHeader>
-            <CardTitle>{isSignup ? "Create Account" : "Admin Login"}</CardTitle>
+            <CardTitle>
+              {isSignup ? "Hisob yaratish" : "Boshqaruv paneliga kirish"}
+            </CardTitle>
             <CardDescription>
               {isSignup
-                ? "Sign up to manage lessons"
-                : "Sign in to access the admin panel"}
+                ? "Darslarni boshqarish uchun ro'yxatdan o'ting"
+                : "Boshqaruv paneliga kirish uchun tizimga kiring"}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -96,14 +102,14 @@ export default function LoginPage() {
               <Input
                 type="email"
                 name="email"
-                label="Email"
+                label="Elektron pochta"
                 required
                 placeholder="admin@example.com"
               />
               <Input
                 type="password"
                 name="password"
-                label="Password"
+                label="Parol"
                 required
                 placeholder="••••••••"
               />
@@ -121,7 +127,11 @@ export default function LoginPage() {
               )}
 
               <Button type="submit" className="w-full" disabled={loading}>
-                {loading ? "Please wait..." : isSignup ? "Sign Up" : "Sign In"}
+                {loading
+                  ? "Iltimos, kuting..."
+                  : isSignup
+                    ? "Ro'yxatdan o'tish"
+                    : "Kirish"}
               </Button>
             </form>
 
@@ -135,14 +145,14 @@ export default function LoginPage() {
                 className="text-blue-600 hover:underline"
               >
                 {isSignup
-                  ? "Already have an account? Sign in"
-                  : "Don't have an account? Sign up"}
+                  ? "Hisobingiz bormi? Tizimga kiring"
+                  : "Hisobingiz yo'qmi? Ro'yxatdan o'ting"}
               </button>
             </div>
 
             <div className="mt-4 text-center">
               <Link href="/" className="text-sm text-gray-600 hover:underline">
-                ← Back to lessons
+                ← Darslarga qaytish
               </Link>
             </div>
           </CardContent>

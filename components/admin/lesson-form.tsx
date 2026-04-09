@@ -51,7 +51,7 @@ export default function LessonForm({ lesson }: LessonFormProps) {
       if (imageFile) {
         const uploadResult = await uploadFile(imageFile);
         if (uploadResult.error) {
-          alert("Error uploading image: " + uploadResult.error);
+          alert("Rasm yuklashda xatolik: " + uploadResult.error);
           setIsSubmitting(false);
           return;
         }
@@ -71,13 +71,13 @@ export default function LessonForm({ lesson }: LessonFormProps) {
       }
 
       if (result.error) {
-        alert("Error saving lesson: " + result.error);
+        alert("Darsni saqlashda xatolik: " + result.error);
       } else {
         router.push("/admin");
         router.refresh();
       }
     } catch {
-      alert("Error saving lesson");
+      alert("Darsni saqlashda xatolik yuz berdi");
     } finally {
       setIsSubmitting(false);
     }
@@ -86,25 +86,25 @@ export default function LessonForm({ lesson }: LessonFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <Input
-        label="Title"
+        label="Sarlavha"
         value={formData.title}
         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         required
-        placeholder="Enter lesson title"
+        placeholder="Dars sarlavhasini kiriting"
       />
 
       <Textarea
-        label="Description"
+        label="Tavsif"
         value={formData.description}
         onChange={(e) =>
           setFormData({ ...formData, description: e.target.value })
         }
-        placeholder="Brief description of the lesson"
+        placeholder="Darsning qisqacha tavsifi"
         rows={3}
       />
 
       <Input
-        label="Video URL (YouTube or direct link)"
+        label="Video manzili (YouTube yoki to'g'ridan-to'g'ri havola)"
         value={formData.video_url}
         onChange={(e) =>
           setFormData({ ...formData, video_url: e.target.value })
@@ -114,7 +114,7 @@ export default function LessonForm({ lesson }: LessonFormProps) {
 
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-700">
-          Lesson Thumbnail
+          Dars uchun rasm
         </label>
         <div className="flex items-center space-x-4">
           <label className="cursor-pointer">
@@ -126,14 +126,14 @@ export default function LessonForm({ lesson }: LessonFormProps) {
             />
             <div className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
               <Upload className="h-4 w-4" />
-              <span className="text-sm">Choose Image</span>
+              <span className="text-sm">Rasm tanlash</span>
             </div>
           </label>
           {imagePreview && (
             <div className="relative h-20 w-20">
               <Image
                 src={imagePreview}
-                alt="Preview"
+                alt="Ko'rib chiqish"
                 fill
                 className="object-cover rounded-md"
               />
@@ -144,12 +144,12 @@ export default function LessonForm({ lesson }: LessonFormProps) {
 
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-700">
-          Lesson Content
+          Dars mazmuni
         </label>
         <RichTextEditor
           value={formData.content}
           onChange={(value) => setFormData({ ...formData, content: value })}
-          placeholder="Write your lesson content here..."
+          placeholder="Dars matnini shu yerga yozing..."
         />
       </div>
 
@@ -160,14 +160,14 @@ export default function LessonForm({ lesson }: LessonFormProps) {
           onClick={() => router.push("/admin")}
           disabled={isSubmitting}
         >
-          Cancel
+          Bekor qilish
         </Button>
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting
-            ? "Saving..."
+            ? "Saqlanmoqda..."
             : lesson
-            ? "Update Lesson"
-            : "Create Lesson"}
+              ? "Darsni yangilash"
+              : "Dars yaratish"}
         </Button>
       </div>
     </form>

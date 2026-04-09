@@ -48,11 +48,11 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
   const handleCreateQuiz = async () => {
     const result = await createQuiz({
       lesson_id: lessonId,
-      title: "Lesson Quiz",
+      title: "Dars viktorinasi",
     });
 
     if (result.error) {
-      alert("Error creating quiz: " + result.error);
+      alert("Viktorina yaratishda xatolik: " + result.error);
     } else {
       await loadQuiz();
     }
@@ -86,12 +86,12 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
       !newQuestion.trim() ||
       newOptions.some((opt) => !opt.text.trim())
     ) {
-      alert("Please fill in all fields");
+      alert("Iltimos, barcha maydonlarni to'ldiring");
       return;
     }
 
     if (!newOptions.some((opt) => opt.is_correct)) {
-      alert("Please mark at least one correct answer");
+      alert("Kamida bitta to'g'ri javobni belgilang");
       return;
     }
 
@@ -103,7 +103,7 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
     });
 
     if (result.error) {
-      alert("Error adding question: " + result.error);
+      alert("Savol qo'shishda xatolik: " + result.error);
     } else {
       setNewQuestion("");
       setNewOptions([
@@ -115,27 +115,27 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
   };
 
   const handleDeleteQuestion = async (questionId: string) => {
-    if (!confirm("Are you sure you want to delete this question?")) return;
+    if (!confirm("Haqiqatan ham bu savolni o'chirmoqchimisiz?")) return;
 
     const result = await deleteQuizQuestion(questionId);
     if (result.error) {
-      alert("Error deleting question: " + result.error);
+      alert("Savolni o'chirishda xatolik: " + result.error);
     } else {
       await loadQuiz();
     }
   };
 
   if (loading) {
-    return <div className="text-center py-8">Loading quiz...</div>;
+    return <div className="text-center py-8">Viktorina yuklanmoqda...</div>;
   }
 
   if (!quiz) {
     return (
       <div className="text-center py-8">
         <p className="text-gray-600 mb-4">
-          No quiz created yet for this lesson
+          Bu dars uchun hali viktorina yaratilmagan
         </p>
-        <Button onClick={handleCreateQuiz}>Create Quiz</Button>
+        <Button onClick={handleCreateQuiz}>Viktorina yaratish</Button>
       </div>
     );
   }
@@ -145,7 +145,7 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
       {/* Existing Questions */}
       {quiz.quiz_questions && quiz.quiz_questions.length > 0 && (
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">Existing Questions</h3>
+          <h3 className="text-lg font-semibold">Mavjud savollar</h3>
           {quiz.quiz_questions.map((question, qIndex) => (
             <Card key={question.id}>
               <CardContent className="pt-6">
@@ -188,32 +188,32 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
 
       {/* Add New Question */}
       <div className="border-t pt-6">
-        <h3 className="text-lg font-semibold mb-4">Add New Question</h3>
+        <h3 className="text-lg font-semibold mb-4">{"Yangi savol qo'shish"}</h3>
         <div className="space-y-4">
           <Input
-            label="Question"
+            label="Savol"
             value={newQuestion}
             onChange={(e) => setNewQuestion(e.target.value)}
-            placeholder="Enter your question"
+            placeholder="Savolingizni kiriting"
           />
 
           <div className="space-y-3">
             <label className="block text-sm font-medium text-gray-700">
-              Answer Options
+              Javob variantlari
             </label>
             {newOptions.map((option, index) => (
               <div key={index} className="flex items-center space-x-2">
                 <Input
                   value={option.text}
                   onChange={(e) => handleOptionChange(index, e.target.value)}
-                  placeholder={`Option ${index + 1}`}
+                  placeholder={`Variant ${index + 1}`}
                 />
                 <Button
                   type="button"
                   size="sm"
                   variant={option.is_correct ? "primary" : "secondary"}
                   onClick={() => handleCorrectAnswerChange(index)}
-                  title="Mark as correct answer"
+                  title="To'g'ri javob sifatida belgilash"
                 >
                   <Check className="h-4 w-4" />
                 </Button>
@@ -236,11 +236,11 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
               onClick={handleAddOption}
             >
               <Plus className="h-4 w-4 mr-2" />
-              Add Option
+              {"Variant qo'shish"}
             </Button>
           </div>
 
-          <Button onClick={handleAddQuestion}>Add Question</Button>
+          <Button onClick={handleAddQuestion}>{"Savol qo'shish"}</Button>
         </div>
       </div>
     </div>
