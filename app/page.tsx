@@ -26,7 +26,7 @@ export default async function Home() {
               <GraduationCap className="h-8 w-8 sm:h-10 sm:w-10 text-blue-600 shrink-0" />
               <div className="min-w-0">
                 <h1 className="text-lg sm:text-2xl font-bold text-gray-900 truncate">
-                  {"Ta'lim Platformasi"}
+                  {"Multimedia texnologiyalari"}
                 </h1>
                 <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">
                   Bilimingizni kengaytiring
@@ -46,7 +46,7 @@ export default async function Home() {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            {"Ta'lim platformamizga xush kelibsiz"}
+            {"Multimedia texnologiyalari platformamizga xush kelibsiz"}
           </h2>
           <p className="text-xl text-gray-600 mb-8">
             {
