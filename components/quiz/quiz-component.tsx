@@ -92,12 +92,9 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
         <CardContent>
           <p className="text-gray-600 mb-4">
             {"O'rganganlaringizni tekshirishga tayyormisiz? "}
-            {quiz.quiz_questions.length} ta savoldan iborat viktorinani
-            boshlang.
+            {quiz.quiz_questions.length} ta savoldan iborat testni boshlang.
           </p>
-          <Button onClick={() => setShowQuiz(true)}>
-            Viktorinani boshlash
-          </Button>
+          <Button onClick={() => setShowQuiz(true)}>Testni boshlash</Button>
         </CardContent>
       </Card>
     );
@@ -112,7 +109,7 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
         <CardHeader>
           <CardTitle className="flex items-center">
             <Trophy className="h-6 w-6 text-yellow-500 mr-2" />
-            Viktorina natijalari
+            Test natijalari
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -181,7 +178,7 @@ export default function QuizComponent({ lessonId }: QuizComponentProps) {
     <Card className="shadow-none">
       <CardHeader>
         <div className="flex justify-between items-center">
-          <CardTitle>Viktorina</CardTitle>
+          <CardTitle>Test</CardTitle>
           <span className="text-sm text-gray-500">
             Savol {currentQuestion + 1} / {quiz.quiz_questions.length}
           </span>

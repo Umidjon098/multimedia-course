@@ -48,11 +48,11 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
   const handleCreateQuiz = async () => {
     const result = await createQuiz({
       lesson_id: lessonId,
-      title: "Dars viktorinasi",
+      title: "Dars testi",
     });
 
     if (result.error) {
-      alert("Viktorina yaratishda xatolik: " + result.error);
+      alert("Test yaratishda xatolik: " + result.error);
     } else {
       await loadQuiz();
     }
@@ -126,16 +126,16 @@ export default function QuizManager({ lessonId }: QuizManagerProps) {
   };
 
   if (loading) {
-    return <div className="text-center py-8">Viktorina yuklanmoqda...</div>;
+    return <div className="text-center py-8">Test yuklanmoqda...</div>;
   }
 
   if (!quiz) {
     return (
       <div className="text-center py-8">
         <p className="text-gray-600 mb-4">
-          Bu dars uchun hali viktorina yaratilmagan
+          Bu dars uchun hali test yaratilmagan
         </p>
-        <Button onClick={handleCreateQuiz}>Viktorina yaratish</Button>
+        <Button onClick={handleCreateQuiz}>Test yaratish</Button>
       </div>
     );
   }

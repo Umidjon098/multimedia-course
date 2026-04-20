@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ta'lim Platformasi - Interaktiv Kurslar",
-  description: "Interaktiv darslar, videolar va viktorinalar orqali o'rganing",
+  title: "Multimedia texnologiyalari kursi - Interaktiv Kurslar",
+  description: "Interaktiv darslar, videolar va testlar orqali o'rganing",
 };
 
 export default function RootLayout({

@@ -81,7 +81,7 @@ export default function LoginPage() {
           <Link href="/" className="inline-flex items-center space-x-2 mb-4">
             <GraduationCap className="h-10 w-10 text-blue-600" />
             <span className="text-2xl font-bold text-gray-900">
-              {"Ta'lim Platformasi"}
+              {"Multimedia texnologiyalari kursi"}
             </span>
           </Link>
         </div>
